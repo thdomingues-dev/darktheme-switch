@@ -5,22 +5,26 @@ import { shade } from 'polished';
 
 import { Container } from './styles';
 
-const Header: React.FC = () => {
-  const { colors } = useContext(ThemeContext);
+interface HeaderProps {
+  toggleTheme: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
+  const { colors, title } = useContext(ThemeContext);
 
   return (
     <Container>
       Hello, TH!
 
       <Switch
-        onChange={() => { }}
-        checked={true}
+        onChange={toggleTheme}
+        checked={title === 'dark'}
         checkedIcon={false}
         uncheckedIcon={false}
         height={10}
         width={40}
         handleDiameter={20}
-        offColor={colors.text}
+        offColor={shade(0.25, colors.primary)}
         onColor={colors.secundary}
       />
     </Container>
