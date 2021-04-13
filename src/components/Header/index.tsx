@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Switch from 'react-switch';
+import { ThemeContext } from 'styled-components';
+import { shade } from 'polished';
 
 import { Container } from './styles';
 
 const Header: React.FC = () => {
+  const { colors } = useContext(ThemeContext);
+
   return (
     <Container>
       Hello, TH!
@@ -16,6 +20,8 @@ const Header: React.FC = () => {
         height={10}
         width={40}
         handleDiameter={20}
+        offColor={colors.text}
+        onColor={colors.secundary}
       />
     </Container>
   );
