@@ -8,9 +8,9 @@ export default createGlobalStyle`
   }
 
   body {
-    background: '#f0f0f0';
+    background: ${props => props.theme.colors.background};
     font-size: 14px;
-    color: #333;
+    color: ${props => props.theme.colors.text};
     font-family: sans-serif;
   }
 `;
